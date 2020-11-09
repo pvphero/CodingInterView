@@ -1,5 +1,7 @@
 package com.vv;
 
+import java.util.Stack;
+
 /**
  * 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
  * <p>
@@ -18,7 +20,11 @@ public class Day1109PrintListInReversedOrder {
         listNode1.next = listNode2;
         listNode2.next = listNode3;
         int[] result = reversePrint(listNode1);
+        int[] result2 = reversePrintByStack(listNode1);
         for (int a : result) {
+            System.out.println(a);
+        }
+        for (int a : result2) {
             System.out.println(a);
         }
     }
@@ -56,6 +62,23 @@ public class Day1109PrintListInReversedOrder {
         }
         return result;
 
+    }
+
+    public static int[] reversePrintByStack(ListNode head) {
+        Stack<ListNode> stack=new Stack<ListNode>();
+        ListNode currentListNode=head;
+        while (currentListNode!=null){
+            stack.push(currentListNode);
+            currentListNode=currentListNode.next;
+        }
+
+        int[] result=new int[stack.size()];
+        int i=0;
+        while (!stack.isEmpty()){
+            result[i]=stack.pop().value;
+            i++;
+        }
+        return result;
     }
 
 
