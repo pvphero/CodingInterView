@@ -1,5 +1,7 @@
 package com.vv;
 
+import com.vv.data.ListNode;
+
 import java.util.Stack;
 
 /**
@@ -79,24 +81,6 @@ public class Day1109PrintListInReversedOrder {
             i++;
         }
         return result;
-    }
-
-
-    /**
-     * Definition for singly-linked list.
-     * public class ListNode {
-     * int val;
-     * ListNode next;
-     * ListNode(int x) { val = x; }
-     * }
-     */
-    public static class ListNode {
-        int value;
-        ListNode next;
-
-        public ListNode(int val) {
-            this.value = val;
-        }
     }
 
 
