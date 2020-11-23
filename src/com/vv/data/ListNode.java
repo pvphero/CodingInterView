@@ -20,6 +20,6 @@ public class ListNode {
             sb.append(head.value + "");
             head = head.next;
         }
-        return "ListNode{" + head + "}";
+        return "ListNode{" + sb.toString() + "}";
     }
 }
