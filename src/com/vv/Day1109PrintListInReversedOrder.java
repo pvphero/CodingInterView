@@ -58,7 +58,7 @@ public class Day1109PrintListInReversedOrder {
         int index = length - 1;
         currentListNode = head;
         while (currentListNode != null) {
-            result[index] = currentListNode.value;
+            result[index] = currentListNode.val;
             currentListNode = currentListNode.next;
             index--;
         }
@@ -77,7 +77,7 @@ public class Day1109PrintListInReversedOrder {
         int[] result=new int[stack.size()];
         int i=0;
         while (!stack.isEmpty()){
-            result[i]=stack.pop().value;
+            result[i] = stack.pop().val;
             i++;
         }
         return result;

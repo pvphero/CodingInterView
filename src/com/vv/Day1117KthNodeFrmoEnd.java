@@ -27,7 +27,7 @@ public class Day1117KthNodeFrmoEnd {
         ListNode listNode3 = new ListNode(2);
         listNode1.next = listNode2;
         listNode2.next = listNode3;
-        System.out.println(getKthNodeEnd(listNode1, 2).value + "");
+        System.out.println(getKthNodeEnd(listNode1, 2).val + "");
     }
 
     public static ListNode getKthNodeEnd(ListNode head, int k) {

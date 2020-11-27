@@ -27,7 +27,7 @@ class Day1117MergeSorteLists {
         listNode1.next = listNode2;
         listNode2.next = listNode3;
 
-        System.out.println(mergeTowLists(listNode1, listNode2).value + "");
+        System.out.println(mergeTowLists(listNode1, listNode2).val + "");
     }
 
     public static ListNode mergeTowLists(ListNode l1, ListNode l2) {
@@ -36,7 +36,7 @@ class Day1117MergeSorteLists {
         ListNode cur = dum;
 
         while (l1 != null && l2 != null) {
-            if (l1.value < l2.value) {
+            if (l1.val < l2.val) {
                 cur.next = l1;
                 l1 = l1.next;
             } else {

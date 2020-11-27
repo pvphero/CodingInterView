@@ -27,7 +27,7 @@ class Day1117ReverseList {
         ListNode listNode3 = new ListNode(2);
         listNode1.next = listNode2;
         listNode2.next = listNode3;
-        System.out.println(reverseListNode(listNode1).value + "");
+        System.out.println(reverseListNode(listNode1).val + "");
     }
 
     public static ListNode reverseListNode(ListNode head) {

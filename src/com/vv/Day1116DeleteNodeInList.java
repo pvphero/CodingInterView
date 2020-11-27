@@ -35,13 +35,13 @@ public class Day1116DeleteNodeInList {
 
     public ListNode deleteNode(ListNode head, int val) {
         //如果删除的是头节点的话 那么返回头节点的next节点
-        if (head.value == val) {
+        if (head.val == val) {
             return head.next;
         }
         ListNode pre = head;
         ListNode cur = head.next;
         //如果cur不是尾指针，并且cur的value不是val的话  那么遍历next节点
-        while (cur != null && cur.value != val) {
+        while (cur != null && cur.val != val) {
             //将pre指向cur，cur指向cur next
             pre = cur;
             cur = cur.next;

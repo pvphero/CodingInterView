@@ -44,8 +44,8 @@ public class Day1123TwoNumsAddReturn {
         ListNode head = dumry;
         int addOne = 0;
         while (l1 != null || l2 != null || addOne != 0) {
-            int val1 = l1 != null ? l1.value : 0;
-            int val2 = l2 != null ? l2.value : 0;
+            int val1 = l1 != null ? l1.val : 0;
+            int val2 = l2 != null ? l2.val : 0;
             int sum = val1 + val2 + addOne;
             head.next = new ListNode(sum % 10);
             head = head.next;
