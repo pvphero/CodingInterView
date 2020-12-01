@@ -46,28 +46,44 @@ public class Day1120TowNum {
     }
 
     public static int[] twoSum2(int[] nums, int target) {
+        //1.排序
         int[] tmpl = new int[nums.length];
-        //1.先对数组进行排序
         System.arraycopy(nums, 0, tmpl, 0, nums.length);
         Arrays.sort(nums);
-        //2.定义双指针
+        //2.定义两个指针
         int low = 0;
         int height = nums.length - 1;
         int sum = 0;
+        int[] result = new int[2];
+        int m = 0, n = 0, i = 0;
         while (low < height) {
             sum = nums[low] + nums[height];
             if (sum < target) {
-                //如果sum小于target 说明左指针需要往右移动
                 low++;
-
             } else if (sum > target) {
-                //如果sum 大于target 说明右指针需要左移
                 height--;
             } else if (sum == target) {
-                return new int[]{low, height};
+                m = low;
+                n = height;
+                break;
             }
         }
-        return new int[]{};
+
+        for (i = 0; i < nums.length; i++) {
+            if (tmpl[i] == nums[m]) {
+                result[0] = i;
+                break;
+            }
+        }
+
+        for (int k = 0; k < nums.length; k++) {
+            if (tmpl[k] == nums[n] && k != i) {
+                result[1] = k;
+                break;
+            }
+        }
+        return result;
+
     }
 
 }
