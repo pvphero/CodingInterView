@@ -1,5 +1,6 @@
 package com.vv;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,16 +28,44 @@ import java.util.Map;
  */
 public class Day1120TowNum {
     public static void main(String[] args) {
-
+        int[] a = new int[]{2, 7, 11, 15};
+        int target = 9;
+        System.out.println(twoSum(a, target)[0] + "_" + twoSum(a, target)[1]);
+        System.out.println(twoSum2(a, target)[0] + "_" + twoSum(a, target)[1]);
     }
 
-    public int[] twoSum(int[] nums, int target) {
+    public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
         for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(target - nums[i])) {
                 return new int[]{map.get(target - nums[i]), i};
             }
             map.put(nums[i], i);
+        }
+        return new int[]{};
+    }
+
+    public static int[] twoSum2(int[] nums, int target) {
+        int[] tmpl = new int[nums.length];
+        //1.先对数组进行排序
+        System.arraycopy(nums, 0, tmpl, 0, nums.length);
+        Arrays.sort(nums);
+        //2.定义双指针
+        int low = 0;
+        int height = nums.length - 1;
+        int sum = 0;
+        while (low < height) {
+            sum = nums[low] + nums[height];
+            if (sum < target) {
+                //如果sum小于target 说明左指针需要往右移动
+                low++;
+
+            } else if (sum > target) {
+                //如果sum 大于target 说明右指针需要左移
+                height--;
+            } else if (sum == target) {
+                return new int[]{low, height};
+            }
         }
         return new int[]{};
     }
