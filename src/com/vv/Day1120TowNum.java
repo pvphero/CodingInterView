@@ -58,14 +58,27 @@ public class Day1120TowNum {
         int m = 0, n = 0, i = 0;
         while (low < height) {
             sum = nums[low] + nums[height];
+            //3.定义 left用来保存  nums[low]的值，right 用来保存 nums[height]的值
+            int left = nums[low];
+            int right = nums[height];
             if (sum < target) {
-                low++;
+                //4.优化 去掉重复的值
+                while (low < height && nums[low] == left) {
+                    low++;
+                }
             } else if (sum > target) {
-                height--;
+                while (low < height && nums[height] == right) {
+                    height--;
+                }
             } else if (sum == target) {
                 m = low;
                 n = height;
-                break;
+                while (low < height && nums[low] == left) {
+                    low++;
+                }
+                while (low < height && nums[height] == right) {
+                    height--;
+                }
             }
         }
 
