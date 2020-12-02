@@ -45,6 +45,7 @@ public class Day1120TowNum {
         return new int[]{};
     }
 
+    //排序时间复杂度  O(nlogn) 循环的时间复杂度 O(n)
     public static int[] twoSum2(int[] nums, int target) {
         //1.排序
         int[] tmpl = new int[nums.length];
