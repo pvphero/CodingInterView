@@ -44,15 +44,12 @@ class Day12013sum {
 
     public static List<List<Integer>> twoSum(int[] nums, int start, int target) {
         //1.对数组排序
-        int[] tmpl = new int[nums.length];
-        System.arraycopy(nums, 0, tmpl, 0, nums.length);
         Arrays.sort(nums);
         //2.定义两个指针
         int low = start;
         int heigh = nums.length - 1;
         int sum = 0;
         List<List<Integer>> result = new ArrayList<List<Integer>>();
-        List<Integer> list = new ArrayList<Integer>();
         while (low < heigh) {
             sum = nums[low] + nums[heigh];
             //3.定义 left right保存nums[low] nums[heigh]的值
@@ -67,6 +64,7 @@ class Day12013sum {
                     heigh--;
                 }
             } else {
+                List<Integer> list = new ArrayList<Integer>();
                 list.add(left);
                 list.add(right);
                 result.add(list);
@@ -78,16 +76,11 @@ class Day12013sum {
                 }
             }
         }
-
         return result;
-
-
     }
 
     public static List<List<Integer>> threeSumWithTarget(int[] nums, int target) {
         //1.排序
-        int[] tmpl = new int[nums.length];
-        System.arraycopy(nums, 0, tmpl, 0, nums.length);
         Arrays.sort(nums);
         int n = nums.length;
         //穷举
