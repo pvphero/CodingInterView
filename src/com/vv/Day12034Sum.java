@@ -94,10 +94,12 @@ class Day12034Sum {
             //3.定义两个临时变量用来存储  当前两个指针的值  left 跟 right
             int left = nums[low], right = nums[heigh];
             if (sum < target) {
+                //受4的启发 跳过所有重复的元素
                 while (low < heigh && nums[low] == left) {
                     low++;
                 }
             } else if (sum > target) {
+                //受4的启发 跳过所有重复的元素
                 while (low < heigh && nums[heigh] == right) {
                     heigh--;
                 }
@@ -106,6 +108,7 @@ class Day12034Sum {
                 list.add(left);
                 list.add(right);
                 result.add(list);
+                //4.跳过所有重复的元素
                 while (low < heigh && nums[low] == left) {
                     low++;
                 }
