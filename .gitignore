@@ -1,0 +1,7 @@
+/build
+/src/main/res/values-sk/strings.xml
+/.gitignore
+/schemas
+/bugly/
+.idea/
+/out/
