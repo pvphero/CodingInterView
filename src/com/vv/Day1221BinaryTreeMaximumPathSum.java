@@ -61,8 +61,27 @@ public class Day1221BinaryTreeMaximumPathSum {
      * }
      */
     class Solution {
-        public int maxPathSum(TreeNode root) {
 
+        int maxSum = Integer.MIN_VALUE;
+
+        public int maxPathSum(TreeNode root) {
+            maxGain(root);
+            return maxSum;
+        }
+
+        private int maxGain(TreeNode root) {
+            if (root == null) {
+                return 0;
+            }
+
+            int leftGain = Math.max(maxGain(root.left), 0);
+            int RightGain = Math.max(maxGain(root.right), 0);
+
+            int priceNewPath = root.val + leftGain + RightGain;
+
+            maxSum = Math.max(maxSum, priceNewPath);
+
+            return root.val + Math.max(leftGain, RightGain);
         }
     }
 
