@@ -21,7 +21,7 @@ class NameChange {
         for (String part : parts) {
             camelCaseString = camelCaseString + toProperCase(part);
         }
-        return "track" + camelCaseString;
+        return camelCaseString;
     }
 
     static String toProperCase(String s) {
